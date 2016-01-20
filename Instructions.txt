@@ -1,0 +1,74 @@
+For all computers:
+  sudo rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
+
+On Master:
+  yum install puppet-server
+
+On agents:
+  yum install puppet
+
+Optional: edit /etc/hosts file to ensure connections between servers.
+
+On agents:
+  puppet config set server <server dns name>
+  (to get certification)
+  puppet agent --test
+  
+On master:
+  puppet cert list --all
+  puppet cert sign <agent dns name>
+  
+Manifests creation:
+On master:
+  In /etc/puppet/modules create module directory.
+  example:
+  mkdir -p /etc/puppet/modules/ntp
+  mkdir -p /etc/puppet/modules/ntp/manifests
+  create init.pp file for module with class (same name as module)
+    
+  or install module if exists
+  puppet module search ntp (best look for puppet labs modules)
+  puppet module install <name>
+  
+Adding scenarios for nodes;
+On Master:
+  Edit /etc/puppet/manifests/site.pp
+  
+  node default {
+  
+  }
+  
+  node 'node name' {
+    include <module name>
+  }
+  
+  
+  
+Testing agent-master connection:
+  puppet agent --test
+  
+Start agent as service
+  systemctl start puppet
+  (To see last run output systemctl status puppet -l)
+  
+
+  
+  
+  Jenkins:
+  manage jenkins
+  configure global security
+  enable security
+  Jenkins own user + alow + anyone can do anything
+  save
+  
+  On main page register (sign up)
+  username
+  password
+  .....
+  
+  manage jenkins
+  Configure global security
+  Project based matrix .....
+  add user
+  admin privelegies
+  save
