@@ -1,2 +1,0 @@
-# DevOpsCourse
-DevOps course files
