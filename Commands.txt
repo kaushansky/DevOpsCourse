@@ -1,0 +1,9 @@
+$ sudo rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
+sudo yum install puppet-server
+sudo firewall-cmd --zone=public --add-port=8140/tcp --permanent
+sudo firewall-cmd --reload
+sudo systemctl stop puppetmaster
+sudo systemctl start puppetmaster
+sudo puppet config set server master.master-2rb37d7j.g4.internal.cloudapp.net
+
+sudo puppet cert sign build-node-02.build-node-02.g1.internal.cloudapp.net
