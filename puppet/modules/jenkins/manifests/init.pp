@@ -1,5 +1,6 @@
 class jenkins {
 	require java
+	require ntp
 	package { 'jenkins':
 	  ensure  => present,
 	  require => Yumrepo['jenkins'],
