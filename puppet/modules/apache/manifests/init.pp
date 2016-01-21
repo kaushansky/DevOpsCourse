@@ -5,6 +5,8 @@ class apache {
   service { 'httpd' :
     ensure => running,
     enable => true,
-    hasrestart => true,,
+    hasrestart => true,
+    subscribe  => Package['httpd']
   }
 }
+
