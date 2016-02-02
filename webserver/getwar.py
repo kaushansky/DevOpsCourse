@@ -29,6 +29,6 @@ def main(argv):
         mycommand = 'sshpass -p \'duv_admin\' scp root@' + myserver + ':' + warfile + ' ' + targetdir
         print 'Executing command: ' + mycommand
         os.system(mycommand)
-#       os.system("sshpass -p r'duv_admin' scp root@build-node-01:/etc/jenkins/build-node-01/workspace/buildtest/target/courseProject.war /var/lib/tomcat/webapps/courseProject.war")
+#       os.system("sshpass -p r'3.14zdec' scp root@build-node-01:/etc/jenkins/build-node-01/workspace/buildtest/target/courseProject.war /var/lib/tomcat/webapps/courseProject.war")
 if __name__ == "__main__":
    main(sys.argv[1:])
